@@ -46,6 +46,21 @@ public class Login {
     @FindBy(how = How.XPATH, using = "//div[contains(text(), 'You should receive an email shortly with further instructions.' )]")
     WebElement succesmessage;
 
+    @FindBy(linkText = "I've forgotten my username")
+    WebElement forgotusername;
+
+    @FindBy(how = How.XPATH, using = "//h1[contains(text(), 'Forgot Username')]")
+    WebElement forgotusernamescreen;
+
+    @FindBy(how = How.ID, using = "email")
+    WebElement insertemailforgotusername;
+
+    @FindBy(how = How.ID, using = "submit-button")
+    WebElement submitbutton;
+
+    @FindBy(how = How.XPATH, using = "//div[contains(text(), ' An e-mail has been sent to the following address: jose.correia@bringglobal.com')]")
+    WebElement succesmessageforgotusername;
+
     @FindBy(how = How.XPATH, using = "//h1[contains(text(), ' Accounts ' )]")
     WebElement accounts;
 
@@ -103,4 +118,25 @@ public class Login {
         sharedDriver.getWait().until(ExpectedConditions.visibilityOf(succesmessage));
 
     }
+
+    public void ClickOnForgotUsername(){
+        sharedDriver.getWait().until(ExpectedConditions.visibilityOf(forgotusername)).click();
+    }
+
+    public void ImOnForgotUsernameScreen(){
+        sharedDriver.getWait().until(ExpectedConditions.visibilityOf(forgotusernamescreen));
+    }
+
+    public void InsertEmailForgotUsername(String email){
+        sharedDriver.getWait().until(ExpectedConditions.visibilityOf(insertemailforgotusername)).sendKeys(email);
+    }
+
+    public void ClickOnSubmitForgotUsername(){
+        sharedDriver.getWait().until(ExpectedConditions.visibilityOf(submitbutton)).click();
+    }
+
+    public void CheckSuccessMessageForgotUsername(){
+        sharedDriver.getWait().until(ExpectedConditions.visibilityOf(succesmessageforgotusername));
+    }
+
 }

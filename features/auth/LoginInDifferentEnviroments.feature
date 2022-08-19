@@ -13,7 +13,7 @@ Feature: Login with different username in different envs
   @test
     Examples:
       | username | password |
-      | grupo.bango | grupo.bango|
+      | bango.group | bango.group|
 
   #@uxt
     #Examples:
