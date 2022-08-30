@@ -2,7 +2,10 @@ package Actions;
 
 import Steps.SharedDriver;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class Dashboard {
    SharedDriver sharedDriver;
@@ -13,5 +16,11 @@ public class Dashboard {
    }
 
 
+@FindBy(className = "bb-account__account-name")
+    WebElement account;
 
+
+   public void ClickOnAccount(){
+       sharedDriver.getWait().until(ExpectedConditions.visibilityOf(account)).click();
+   }
 }
